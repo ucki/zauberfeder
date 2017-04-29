@@ -1,6 +1,6 @@
 # zauberfeder
 My OSCP report template in LaTex
-(the *.zip includes all files for a new report, if ou don't want to clone the git)
+(the *.zip includes all files for a new report, if you don't want to clone the git)
 
 The basic idea is that every host gets a own folder (just copy the example).
 While doing the machine the documentation goes into the file.
