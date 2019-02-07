@@ -1,3 +1,5 @@
+% !TeX spellcheck = en_US
+
 %---------------------------------------------------------------------------------
 %--------------------------Set the variables for every client---------------------
 %---------------------------------------------------------------------------------
@@ -7,7 +9,10 @@
 \renewcommand{\tcpports}{1,2,3}
 \renewcommand{\udpports}{23,42}
 \renewcommand{\vuln}{CVE-123-42 \glqq Stupid Idiot User\grqq}
+\renewcommand{\product}{Human}
+%The x-Variables are only used, when root is defined (== root shell)
 \renewcommand{\vulnx}{CVE-123-43 \glqq Very Stupid Idiot User Again\grqq} 
+\renewcommand{\productx}{Human}
 %%%Did you get root? Comment out if you only got low priv access
 \def\root{}   %%% Define root if you got root shell
 
@@ -41,7 +46,29 @@
 %----------------------------------------------------------------------------------
  
 \paragraph{Vulnerability Explanation:}
-BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA 
+% You can answer the following questions:
+% What is the problem? eg.:
+% X is subject to a buffer overflow vulnerability in Y field.
+% A custom web application identified was prone to SQL Injection attacks.
+\product{} is vulnerable to a remote code execution.
+% What can an attacker do with this vulnerability?
+Attackers can use this vulnerability to access the system from a remote location.
+% How did you notice this bug?
+When performing the penetration test, \name{} noticed an outdated version of \product{} running from the service enumeration phase. 
+% Did you need to change an exploit in order to run it? eg.:
+% In addition, the operating system was different from the known public exploit. A rewritten exploit was needed in order for successful code execution to occur. 
+% A public exploit could be used without modification. (Do not forget to link it.)
+A public exploit\footnote{\url{https://www.exploit-db.com/exploits/9623}} was available and could be used without modification.
+% What was the result of the execution?
+A targeted attack was performed on the system, which gave \name{} low privilege access to the system. 
+
+\paragraph{Vulnerability Fix:}
+% The publishers of the \product{] have issued a patch to fix this known issue. It can be found here: \url{google.de}
+% Since this is a custom web application, a specific update will not properly solve this issue. The application will need to be programmed to properly sanitize user-input data, ensure that the user is running off of a limited user account, and that any sensitive data stored within the SQL database is properly encrypted. 
+% There is no newer version of \product{} available. A custom patch has to be created to fix this issue.
+% Microsoft has issued a patch (KB890859) to fix this known issue. It can be found here: https://www.microsoft.com/en-us/download/details.aspx?id=9241 
+% There is a new version of the RedHat kernel. It is available at the RedHat website.
+The publishers of \product{} have issued a patch to fix this known issue.
 
 \paragraph{Severity:}
 \textbf{\textcolor{red}{Critical}}
@@ -49,7 +76,7 @@ BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHIN
 \paragraph{Proof of Concept:} 
 Modifications to the existing exploit was needed and is highlighted in red.
 \begin{lstlisting}[caption={Exploitation of \hostname}]
-SELECT * FROM login WHERE id = **@1 or 1=1@** AND user LIKE "\%root\%"
+SELECT * FROM login WHERE id = **@1 or 1=1@** AND user LIKE "%root%"
 In the code section :
 *@Green Text@*
 **@Red Text@**
@@ -89,7 +116,29 @@ hostname && id && ifconfig && cat local.txt
 \vulnx
 
 \paragraph{Vulnerability Explanation:}
-BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA 
+% You can answer the following questions:
+% What is the problem? eg.:
+% X is subject to a buffer overflow vulnerability in Y field.
+% A custom web application identified was prone to SQL Injection attacks.
+\product{} is subject to a bug in XYZ.
+% What can an attacker do with this vulnerability?
+Attackers can use this vulnerability to perform a privilege escalation and take completely control over the system.
+% How did you notice this bug?
+When performing the penetration test, \name{} noticed an outdated version of \product{}. 
+% Did you need to change an exploit in order to run it? eg.:
+% In addition, the operating system was different from the known public exploit. A rewritten exploit was needed in order for successful code execution to occur. 
+% A public exploit could be used without modification. (Do not forget to link it.)
+A public exploit\footnote{\url{https://www.exploit-db.com/exploits/9623}} was available and could be used without modification.
+% What was the result of the execution?
+A targeted attack was performed on the system, which gave \name{} full administrative access over the system.
+
+\paragraph{Vulnerability Fix:}
+% The publishers of the \product{] have issued a patch to fix this known issue. It can be found here: \url{google.de}
+% Since this is a custom web application, a specific update will not properly solve this issue. The application will need to be programmed to properly sanitize user-input data, ensure that the user is running off of a limited user account, and that any sensitive data stored within the SQL database is properly encrypted. 
+% There is no newer version of \product{} available. A custom patch has to be created to fix this issue.
+% Microsoft has issued a patch (KB890859) to fix this known issue. It can be found here: https://www.microsoft.com/en-us/download/details.aspx?id=9241 
+% There is a new version of the RedHat kernel. It is available at the RedHat website.
+The publishers of \product{} have issued a patch to fix this known issue.
 
 \paragraph{Severity:}
 \textbf{\textcolor{red}{Critical}}
@@ -97,7 +146,7 @@ BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHIN
 \paragraph{Proof of Concept:} 
 Modifications to the existing exploit was needed and is highlighted in red.
 \begin{lstlisting}[caption={Exploitation of \hostname}]
-SELECT * FROM login WHERE id = **@1 or 1=1@** AND user LIKE "\%root\%"
+SELECT * FROM login WHERE id = **@1 or 1=1@** AND user LIKE "%root%"
 In the code section :
 *@Green Text@*
 **@Red Text@**
