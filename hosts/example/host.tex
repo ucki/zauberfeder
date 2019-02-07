@@ -1,116 +1,129 @@
-\renewcommand{\hostname}{example}
+%---------------------------------------------------------------------------------
+%--------------------------Set the variables for every client---------------------
+%---------------------------------------------------------------------------------
+\renewcommand{\hostname}{Example}
 \renewcommand{\os}{Linux OS Soft XP}
 \renewcommand{\ip}{42.42.42.42}
 \renewcommand{\tcpports}{1,2,3}
 \renewcommand{\udpports}{23,42}
-\renewcommand{\vuln}{CVE-123-42 "`Stupid Idiot User"'}
-%Just choose one , comment out the other
-\toggletrue{priv}
-%\togglefalse{priv}
+\renewcommand{\vuln}{CVE-123-42 \glqq Stupid Idiot User\grqq}
+\renewcommand{\vulnx}{CVE-123-43 \glqq Very Stupid Idiot User Again\grqq} 
+%%%Did you get root? Comment out if you only got low priv access
+\def\root{}   %%% Define root if you got root shell
 
-%--------------------------------------------------------------------------------------------------------------------
- 
-%---------------------------------------Start writing here-------------------------
+
+%----------------------------------------------------------------------------------
+%-------------------------------Auto generated content-----------------------------
+%----------------------------------------------------------------------------------
+
 \section{\hostname}
-\subsection{Enumeration}
+\subsection{Service Enumeration}
 
-	\label{tab:\hostname}
-\begin{longtable}{|c|c|}
-\caption{Service enumeration \hostname}\\
-\hline
-\multicolumn{2}{|c|}{\textbf{\hostname}}\\
-\hline
-\hline
-Type&open ports\\
-\hline
-TCP&\tcpports{}\\
-\hline
-UDP&\udpports{}\\
+\begin{table}[h]
+	\begin{tabular}{|c|c|}
+		\hline
+		\multicolumn{2}{|c|}{\textbf{\hostname}}\\\hline\hline
+		Type         & Open ports   \\\hline
+		TCP          & \tcpports{}  \\\hline
+		UDP          & \udpports{}  \\\hline\hline
+		\textbf{\os} & \textbf{\ip} \\\hline
+	\end{tabular}
+	\caption{Service enumeration \hostname}
+\end{table}
 
-\hline
-\hline
-\multicolumn{1}{|c|}{\textbf{\os}}&\multicolumn{1}{|c|}{\textbf{\ip}}\\
-\hline
+\subsection{Remote Access Exploitation}
 
+\paragraph{Vulnerability Exploited:}
+\vuln
 
-\end{longtable}
-\subsection{Exploitation}
+%----------------------------------------------------------------------------------
+%-------------------------------Start writing here---------------------------------
+%----------------------------------------------------------------------------------
+ 
+\paragraph{Vulnerability Explanation:}
+BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA 
 
-\subsubsection{Used Vulnerability: \vuln}
-abc
-\subsubsection{Vulnerability Explanation:}
-BLA BLA WRITE SOMETHING HERE 
+\paragraph{Severity:}
+\textbf{\textcolor{red}{Critical}}
 
-
-%please insert also the priv esc. cmmands in this block. Right now the files don't work as intended. If you need you can use also the post block .. just the if clause for the images don't like the code enviroment.
-\begin{lstlisting}[caption={Exploitation of \hostname},label=\hostname-exploit]
-*@Kali prep:@*
-
-*@Modifications in the exploit@*
-
-*@Running the exploit@*
-
-*@Escaping the low priv shell:@*
+\paragraph{Proof of Concept:} 
+Modifications to the existing exploit was needed and is highlighted in red.
+\begin{lstlisting}[caption={Exploitation of \hostname}]
+SELECT * FROM login WHERE id = **@1 or 1=1@** AND user LIKE "\%root\%"
+In the code section :
+*@Green Text@*
+**@Red Text@**
+***@Blue Text@***
 \end{lstlisting}
 
-
-\begin{figure}[!ht]
-\centering
-\includegraphics [width=\textwidth]{./hosts/\hostname/exploitexecution.png}
-%scale 0.5 bedeutet 50% der originalgröße
-%angle=90 Grafik um 90° drehen
-\caption[Exploitation of \hostname]{Exploitation of \hostname} \label{\hostname-1}
+\paragraph{Screenshot:} 
+\begin{figure}[H]
+	\centering
+	\includegraphics [width=1.0\textwidth]{./hosts/\hostname/exploitexecution.png}
+	%scale 0.5 bedeutet 50% der originalgröße
+	%angle=90 Grafik um 90° drehen
+	\caption[Exploitation of \hostname]{Exploitation of \hostname}
 \end{figure}
 
-
-  \iftoggle{priv}
-    {
-   
-
-%Conditional Privilege Escalation Block .. --------------------------------------------------------------------------------------------------------------------
-
-\FloatBarrier
-
-%Part for Priv escalation -------------------------------------------------------------------------------------------
-\subsubsection{Privilege Escalation}
-
-
-
-
-\begin{figure}[!ht]
-\centering
-\includegraphics [width=\textwidth]{./hosts/\hostname/local.png}
-%scale 0.5 bedeutet 50% der originalgröße
-%angle=90 Grafik um 90° drehen
-\caption[Local shell of \hostname]{Local shell of \hostname} \label{\hostname-2}
+\paragraph{Proof:} %Print proof for local exploit here
+\begin{lstlisting}[caption={Proof of local shell on \hostname}]
+hostname && id && ifconfig && cat local.txt
+\end{lstlisting}
+\begin{figure}[H]
+	\centering
+	\includegraphics [width=\textwidth]{./hosts/\hostname/local.png}
+	\caption[Local shell of \hostname]{Local shell of \hostname}
 \end{figure}
 
+%----------------------------------------------------------------------------------
+%------------------------------Conditional Privilege Escalation Block--------------
+%----------------------------------------------------------------------------------
+\ifdefined\root
 
-\begin{figure}[!ht]
-\centering
-\includegraphics [width=\textwidth]{./hosts/\hostname/privescexploit.png}
-%scale 0.5 bedeutet 50% der originalgröße
-%angle=90 Grafik um 90° drehen
-\caption[Priv escalation exploit of \hostname]{Priv escalation exploit of \hostname} \label{\hostname-3}
-\end{figure}
+%----------------------------------------------------------------------------------
+%------------------------------Part for Priv escalation----------------------------
+%----------------------------------------------------------------------------------
+\subsection{Privilege Escalation}
 
-}
-{}
-%--------------------------------------End of Priv Esc Block------------------------
-\FloatBarrier
-\subsubsection{Proof and Post escalation}
-\begin{lstlisting}[caption={Post exploitation of \hostname},label=\hostname-post]
-*@Post exploitation commands run:@*
+\paragraph{Vulnerability Exploited:}
+\vulnx
 
+\paragraph{Vulnerability Explanation:}
+BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA BLA WRITE SOMETHING HERE BLA 
+
+\paragraph{Severity:}
+\textbf{\textcolor{red}{Critical}}
+
+\paragraph{Proof of Concept:} 
+Modifications to the existing exploit was needed and is highlighted in red.
+\begin{lstlisting}[caption={Exploitation of \hostname}]
+SELECT * FROM login WHERE id = **@1 or 1=1@** AND user LIKE "\%root\%"
+In the code section :
+*@Green Text@*
+**@Red Text@**
+***@Blue Text@***
 \end{lstlisting}
 
-\begin{figure}[!ht]
-\centering
-\includegraphics [width=\textwidth]{./hosts/\hostname/proof.png}
-%scale 0.5 bedeutet 50% der originalgröße
-%angle=90 Grafik um 90° drehen
-\caption[Proof of \hostname]{Proof of \hostname} \label{\hostname-4}
+\paragraph{Screenshot:} 
+\begin{figure}[H]
+	\centering
+	\includegraphics [width=1.0\textwidth]{./hosts/\hostname/privescexploit.png}
+	\caption{Priv escalation exploit of \hostname}
 \end{figure}
 
+\paragraph{Proof:}
+\begin{lstlisting}[caption={Post exploitation of \hostname}]
+hostname && id && ifconfig && cat proof.txt
+\end{lstlisting}
 
-%---------------------End of host file
+\begin{figure}[H]
+	\centering
+	\includegraphics [width=\textwidth]{./hosts/\hostname/proof.png}
+	\caption[Proof of \hostname]{Proof of \hostname}
+\end{figure}
+\fi % End of if-block
+%----------------------------------------------------------------------------------
+%--------------------------------------End of Priv Esc Block-----------------------
+%----------------------------------------------------------------------------------
+
+

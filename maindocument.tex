@@ -1,8 +1,8 @@
-\documentclass[a4paper,12pt, oneside,]{report}
+\documentclass[a4paper, 12pt, oneside]{article}
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{palatino}
-\linespread{1.32}
+\linespread{1.25}
 \usepackage{microtype}
 \usepackage[english]{babel}
 %More citations
@@ -13,14 +13,13 @@
 %code
 \usepackage{listings}
 
-%multi page tables 
-\usepackage{longtable}
 %more colors
-
 \usepackage{soul}
 
-%Bietet einen \floatbarrier Befehl um Bilder abzufangen.
-\usepackage{placeins}
+%Force figure to be placed “HERE”
+\usepackage{float} 
+
+
 %folgende Zeilen sind für Kapitelüberschriften
 \usepackage[rigidchapters]{titlesec}
 \usepackage{blindtext}
@@ -61,29 +60,8 @@
 \setlength{\parindent}{0pt}
 \hyphenation{}
 
+\newcommand{\sectionbreak}{\clearpage}
 
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\fancyfoot{} % clear all footer fields
-\fancyfoot[R]  {\textcolor{color1}\thepage  \textcolor{color2}{/\pageref{LastPage}}}
-
-\fancypagestyle{plain}{}
-
-
-
-
-
-
-
-
-
-%\fancyfoot[]{\thepage}
-%\renewcommand{\footrulewidth}{0.4pt}
-
-
-%\pagestyle{fancy}
-%\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
 \usepackage{color}
 
 \definecolor{color0}{rgb}{0,0,0}% black
@@ -105,11 +83,11 @@
   deletekeywords={...},            % if you want to delete keywords from the given language
   escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
   extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
- % frame=single,	                   % adds a frame around the code
+% frame=single,	                   % adds a frame around the code
   keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
- % keywordstyle=\color{blue},       % keyword style
-  %language=Octave,                 % the language of the code
-  %otherkeywords={*,...},           % if you want to add more keywords to the set
+% keywordstyle=\color{blue},       % keyword style
+% language=Octave,                 % the language of the code
+% otherkeywords={*,...},           % if you want to add more keywords to the set
   numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
   numbersep=5pt,                   % how far the line-numbers are from the code
   numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
@@ -118,13 +96,14 @@
   showstringspaces=false,          % underline spaces within strings only
   showtabs=false,                  % show tabs within strings adding particular underscores
   stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
-  %stringstyle=\color{mymauve},     % string literal style
+%  stringstyle=\color{mymauve},     % string literal style
   tabsize=2,	                   % sets default tabsize to 2 spaces
- % title=\lstname,                   % show the filename of files included with \lstinputlisting; also try caption instead of title
-	moredelim=**[is][\color{codechanged}]{**@}{@**}, %Rot für Änderungen
-		moredelim=**[is][\color{myblue}]{***@}{@***}, %einfaches blau
-	moredelim=**[is][\color{mygreen}]{*@}{@*},%einfaches Grün
+% title=\lstname,                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+  moredelim=**[is][\color{codechanged}]{**@}{@**}, %Rot für Änderungen
+  moredelim=**[is][\color{myblue}]{***@}{@***}, %einfaches blau
+  moredelim=**[is][\color{mygreen}]{*@}{@*},%einfaches Grün
 }
+
 %To toggle the priv escalation part
 \usepackage{environ}
 \usepackage{etoolbox}
@@ -138,9 +117,31 @@
     urlcolor=black
 }
 
-\fancyhead[R]{\scriptsize{CHANGE THE DOCUMENT NAME}}
+
+%---------------------------------------------------------------------------------
+%--------------------------Set the variables for the Mainpage here----------------
+%---------------------------------------------------------------------------------
+
+\newcommand{\email}{x@example.com}
+\newcommand{\osid}{OS-11111}
+\newcommand{\name}{John Doe}
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]  {Test Report by \name}
+\fancyfoot[R]  {\textcolor{color1}\thepage  \textcolor{color2}{/\pageref{LastPage}}}
+
+\fancypagestyle{plain}{}
+
+\fancyhead[L]{\scriptsize{Offensive Security}}
+\fancyhead[R]{\scriptsize{Penetration Test Report}}
 
 \begin{document}
+
+
 %--------------------------------Commands in this document
 %\url{http://blafasel.com} makes nice clickable links in the text
 %\FloatBarrier stops floating images at this point.
@@ -149,22 +150,18 @@
 % *@Green@*
 % **@Red Text@**
 % ***@Blue Text@***
+
 %--------------------------Document might need some Runs to get all Indexes etc right .. usual Latx stuff :)
 
+%--------------------------Declaring the variables for the hosts
 
-
-%--------------------------Declaring the variables
-\newboolean{privesc}
 \newcommand{\hostname}{}
 \newcommand{\ip}{}
 \newcommand{\tcpports}{} 
 \newcommand{\udpports}{} 
 \newcommand{\os}{}
 \newcommand{\vuln}{}
-\newtoggle{priv}
-
-
-
+\newcommand{\vulnx}{}
 
  
 %-------------------------Here are the hosts, just add in the same sheme after you coppied the example folder ---------------------------------------------------------
