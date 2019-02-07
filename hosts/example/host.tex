@@ -83,23 +83,22 @@ In the code section :
 ***@Blue Text@***
 \end{lstlisting}
 
-\paragraph{Screenshot:} 
 \begin{figure}[H]
 	\centering
 	\includegraphics [width=1.0\textwidth]{./hosts/\hostname/exploitexecution.png}
 	%scale 0.5 bedeutet 50% der originalgröße
 	%angle=90 Grafik um 90° drehen
-	\caption[Exploitation of \hostname]{Exploitation of \hostname}
+	\caption{Exploitation of \hostname}
 \end{figure}
 
-\paragraph{Proof:} %Print proof for local exploit here
-\begin{lstlisting}[caption={Proof of local shell on \hostname}]
+\paragraph{Proof of remote access:} %Print proof for local exploit here
+\begin{lstlisting}[caption={Post exploitation of \hostname{} with low privileges}]
 hostname && id && ifconfig && cat local.txt
 \end{lstlisting}
 \begin{figure}[H]
 	\centering
 	\includegraphics [width=\textwidth]{./hosts/\hostname/local.png}
-	\caption[Local shell of \hostname]{Local shell of \hostname}
+	\caption{Proof of remote access to \hostname}
 \end{figure}
 
 %----------------------------------------------------------------------------------
@@ -153,14 +152,13 @@ In the code section :
 ***@Blue Text@***
 \end{lstlisting}
 
-\paragraph{Screenshot:} 
 \begin{figure}[H]
 	\centering
 	\includegraphics [width=1.0\textwidth]{./hosts/\hostname/privescexploit.png}
-	\caption{Priv escalation exploit of \hostname}
+	\caption{Privilege escalation exploit of \hostname}
 \end{figure}
 
-\paragraph{Proof:}
+\paragraph{Proof of successful privilege escalation:}
 \begin{lstlisting}[caption={Post exploitation of \hostname}]
 hostname && id && ifconfig && cat proof.txt
 \end{lstlisting}
@@ -168,7 +166,7 @@ hostname && id && ifconfig && cat proof.txt
 \begin{figure}[H]
 	\centering
 	\includegraphics [width=\textwidth]{./hosts/\hostname/proof.png}
-	\caption[Proof of \hostname]{Proof of \hostname}
+	\caption{Proof of successful privilege escalation on \hostname}
 \end{figure}
 \fi % End of if-block
 %----------------------------------------------------------------------------------
