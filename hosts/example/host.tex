@@ -14,7 +14,8 @@
 \renewcommand{\vulnx}{CVE-123-43 \glqq Very Stupid Idiot User Again\grqq} 
 \renewcommand{\productx}{Human}
 %%%Did you get root? Comment out if you only got low priv access
-\def\root{}   %%% Define root if you got root shell
+\def\gotroot{}   %%% Define root if you got root shell
+%\undef\gotroot % Else undefine
 
 
 %----------------------------------------------------------------------------------
@@ -91,7 +92,7 @@ hostname && id && ifconfig && cat local.txt
 %----------------------------------------------------------------------------------
 %------------------------------Conditional Privilege Escalation Block--------------
 %----------------------------------------------------------------------------------
-\ifdefined\root
+\ifdefined\gotroot
 
 %----------------------------------------------------------------------------------
 %------------------------------Part for Priv escalation----------------------------
