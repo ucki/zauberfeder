@@ -120,8 +120,9 @@
 \fancyhf{}
 \fancyfoot{} % clear all footer fields
 
-\fancyhead[R]{\small{\rightmark}}
+\fancyhead[R]{\small{\leftmark}}
 \fancyhead[L]{\small{Offensive Security - Penetration Test Report}}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
 
 \renewcommand{\footrulewidth}{0.1pt} % Create a rule above the page number
 \fancyfoot[R]{\textcolor{color1}\thepage  \textcolor{color2}{/\pageref{LastPage}}}
