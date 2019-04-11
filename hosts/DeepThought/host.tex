@@ -1,50 +1,53 @@
+%---------------------------------------------------------------------------------
+%--------------------------Set the variables for every client---------------------
+%---------------------------------------------------------------------------------
 \renewcommand{\hostname}{DeepThought}
 \renewcommand{\os}{Earth}
 \renewcommand{\ip}{42.42.42.23}
 \renewcommand{\tcpports}{1,2,3}
 \renewcommand{\udpports}{23,42}
 \renewcommand{\vuln}{Vogons}
-%Just choose one , comment out the other
-\toggletrue{priv}
-%\togglefalse{priv}
+%%%Did you get root? Comment out if you only got low priv access
+\def\root{}   %%% Define root if you got root shell
 
-%--------------------------------------------------------------------------------------------------------------------
- 
-%---------------------------------------Start writing here-------------------------
-\subsection{\hostname}
-\subsubsection{Enumeration}
+%----------------------------------------------------------------------------------
+%-------------------------------Auto generated content-----------------------------
+%----------------------------------------------------------------------------------
 
-	\label{tab:\hostname}
-\begin{longtable}{|c|c|}
-\caption{Service enumeration \hostname}\\
-\hline
-\multicolumn{2}{|c|}{\textbf{\hostname}}\\
-\hline
-\hline
-Type&open ports\\
-\hline
-TCP&\tcpports{}\\
-\hline
-UDP&\udpports{}\\
+\section{\hostname}
+\subsection{Service Enumeration}
 
-\hline
-\hline
-\multicolumn{1}{|c|}{\textbf{\os}}&\multicolumn{1}{|c|}{\textbf{\ip}}\\
-\hline
+\begin{table}[h]
+	\begin{tabular}{|c|c|}
+		\hline
+		\multicolumn{2}{|c|}{\textbf{\hostname}}\\\hline\hline
+		Type         & Open ports   \\\hline
+		TCP          & \tcpports{}  \\\hline
+		UDP          & \udpports{}  \\\hline\hline
+		\textbf{\os} & \textbf{\ip} \\\hline
+	\end{tabular}
+	\caption{Service enumeration \hostname}
+\end{table}
 
+\subsection{Remote Access Exploitation}
 
-\end{longtable}
-\subsubsection{Exploitation}
+\paragraph{Vulnerability Exploited:}
+\vuln
 
-\textit{Used Vulnerability: \vuln}\\
+%----------------------------------------------------------------------------------
+%-------------------------------Start writing here---------------------------------
+%----------------------------------------------------------------------------------
 
-\textit{Vulnerability Explanation:}\\
-
+\paragraph{Vulnerability Explanation:}
 BLA BLA WRITE SOMETHING HERE 
 
 
-%please insert also the priv esc. cmmands in this block. Right now the files don't work as intended. If you need you can use also the post block .. just the if clause for the images don't like the code enviroment.
-\begin{lstlisting}[caption={Exploitation of \hostname},label=\hostname-exploit]
+
+\paragraph{Severity:}
+\textbf{\textcolor{red}{Critical}}
+
+\paragraph{Proof of Concept:} 
+\begin{lstlisting}[caption={Exploitation of \hostname}]
 *@Kali prep:@*
 
 *@Modifications in the exploit@*
@@ -55,7 +58,7 @@ PANIC **@PANIC@** PANIC
 \end{lstlisting}
 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics [width=\textwidth]{./hosts/\hostname/exploitexecution.png}
 %scale 0.5 bedeutet 50% der originalgröße
@@ -64,13 +67,11 @@ PANIC **@PANIC@** PANIC
 \end{figure}
 
 
-  \iftoggle{priv}
-    {
+\ifdefined\root
    
 
 %Conditional Privilege Escalation Block .. --------------------------------------------------------------------------------------------------------------------
 
-\FloatBarrier
 
 %Part for Priv escalation -------------------------------------------------------------------------------------------
 \subsubsection{Privilege Escalation}
@@ -78,7 +79,7 @@ PANIC **@PANIC@** PANIC
 
 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics [width=\textwidth]{./hosts/\hostname/local.png}
 %scale 0.5 bedeutet 50% der originalgröße
@@ -87,7 +88,7 @@ PANIC **@PANIC@** PANIC
 \end{figure}
 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics [width=\textwidth]{./hosts/\hostname/privescexploit.png}
 %scale 0.5 bedeutet 50% der originalgröße
@@ -95,17 +96,16 @@ PANIC **@PANIC@** PANIC
 \caption[Priv escalation exploit of \hostname]{Priv escalation exploit of \hostname} \label{\hostname-3}
 \end{figure}
 
-}
-{}
+\fi
 %--------------------------------------End of Priv Esc Block------------------------
-\FloatBarrier
+
 \subsubsection{Proof and Post escalation}
 \begin{lstlisting}[caption={Post exploitation of \hostname},label=\hostname-post]
 *@Post exploitation commands run:@*
 
 \end{lstlisting}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics [width=\textwidth]{./hosts/\hostname/proof.png}
 %scale 0.5 bedeutet 50% der originalgröße

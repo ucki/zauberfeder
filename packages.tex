@@ -1,0 +1,128 @@
+%Seitenränder definieren
+\usepackage[right=4.0cm,left=3.3cm, bottom=3.9cm, top=4.1cm, footskip=2.1cm, headsep=2.0cm]{geometry}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{palatino}
+\linespread{1.25}
+\usepackage{microtype}
+\usepackage[english]{babel}
+%More citations
+\usepackage{natbib}
+%better urls mit \url{}
+\usepackage{url}
+\usepackage{lastpage}
+%code
+\usepackage{listings}
+
+%more colors
+\usepackage{soul}
+
+%Force figure to be placed “HERE”
+\usepackage{float} 
+
+%folgende Zeilen sind für Kapitelüberschriften
+\usepackage[rigidchapters]{titlesec}
+\usepackage{blindtext}
+\titleformat{\chapter}
+{\normalfont\LARGE}
+{\makebox[3pc][l]{\LARGE\thechapter\hfil\rule[-6pt]{0.5pt}{2pc}}}
+{0pt}
+{\LARGE}
+\titlespacing*{\chapter}{0pt}{0pt}{82pt}
+
+%Csv -> Latex
+\usepackage{csvsimple}
+
+%Für Graphiken 
+\usepackage{tikz}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{positioning,shapes,shadows,arrows}
+\usepackage{graphicx}
+
+%Paket gibt einige Optionen mehr bei Tabellen (wird eher nicht verwendet)
+\usepackage{array}
+
+%\usepackage{stdpage}
+%test wegen anzahl zeilen pro seite
+%Paket für Zeilenabstände
+\usepackage{setspace}
+%\onehalfspacing
+\usepackage{multirow}
+%Paket gibt mehr Kontrolle über die Captions (Bildunterschriften) bei Abbildungen
+\usepackage[labelfont=bf,format=hang,font=footnotesize,justification=raggedright,singlelinecheck=false]{caption}
+
+%Helvetia (Arial) Verwenden WICHTIG: Beide folgenden Zeilen kopieren!
+%\usepackage[scaled]{helvet} %
+%\renewcommand*\familydefault{\sfdefault} %%
+
+% Abschalten des Einrückens bei neuen Absätzen (manuell, nach Tabellen, Abbildungen, etc.)
+\setlength{\parindent}{0pt}
+\hyphenation{}
+
+% New Page before section
+\newcommand{\sectionbreak}{\clearpage}
+
+\usepackage{color}
+
+\definecolor{color0}{rgb}{0,0,0}% black
+\definecolor{color1}{rgb}{0.22,0.45,0.70}% light blue
+\definecolor{color2}{rgb}{0.45,0.45,0.45}% dark grey
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{myblue}{rgb}{0.0, 0.53, 0.74}
+\definecolor{codebackground}{rgb}{0.8, 0.8, 0.8}
+\definecolor{codechanged}{rgb}{0.8, 0.0, 0.0}
+
+\lstset{ %
+  backgroundcolor=\color{codebackground},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+% frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+% keywordstyle=\color{blue},       % keyword style
+% language=Octave,                 % the language of the code
+% otherkeywords={*,...},           % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+% stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+% title=\lstname,                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+  moredelim=**[is][\color{codechanged}]{**@}{@**}, %Rot für Änderungen
+  moredelim=**[is][\color{myblue}]{***@}{@***}, %einfaches blau
+  moredelim=**[is][\color{mygreen}]{*@}{@*},%einfaches Grün
+}
+
+%Aktives Inhaltsverzeichnis und links
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancypagestyle{plain}{}
+\fancyhf{}
+\fancyfoot{} % clear all footer fields
+
+\fancyhead[R]{\small{\leftmark}}
+\fancyhead[L]{\small{Offensive Security - Penetration Test Report}}
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+
+\renewcommand{\footrulewidth}{0.1pt} % Create a rule above the page number
+\fancyfoot[R]{\textcolor{color1}\thepage  \textcolor{color2}{/\pageref{LastPage}}}
