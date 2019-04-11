@@ -13,3 +13,6 @@ Steps to create a new host for the report:
 5. overwrite the screenshots in the folder with the coresponding screenshots from the machine
 6. Include the  \ucki\host.tex in your main document
 7. Go through your pdf .. if you see solid color screenshots you have missed mandatory screenshots
+
+
+Big Thanks @Targunitoth for improving my sloppy work ;)
