@@ -16,3 +16,5 @@ Steps to create a new host for the report:
 
 
 Big Thanks @Targunitoth for improving my sloppy work ;)
+
+And by the way this it open source software under the MIT terms.
