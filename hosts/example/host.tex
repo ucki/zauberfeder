@@ -65,6 +65,11 @@ The publishers of \product{} have issued a patch to fix this known issue.
 Modifications to the existing exploit was needed and is highlighted in red.
 \begin{lstlisting}[caption={Exploitation of \hostname}]
 SELECT * FROM login WHERE id = **@1 or 1=1@** AND user LIKE "%root%"
+
+if (x = y):
+    space indent
+	tab indent
+
 In the code section :
 *@Green Text@*
 **@Red Text@**
@@ -80,6 +85,7 @@ In the code section :
 \end{figure}
 
 \paragraph{Proof of remote access:} %Print proof for local exploit here
+The remote access can be proven with the following command:
 \begin{lstlisting}[caption={Post exploitation of \hostname{} with low privileges}]
 hostname && id && ifconfig && cat local.txt
 \end{lstlisting}
@@ -134,6 +140,7 @@ In the code section :
 \end{figure}
 
 \paragraph{Proof of successful privilege escalation:}
+The successful privilege escalation can be proven with the following command:
 \begin{lstlisting}[caption={Post exploitation of \hostname}]
 hostname && id && ifconfig && cat proof.txt
 \end{lstlisting}
